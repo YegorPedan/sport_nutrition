@@ -1,0 +1,7 @@
+.env = [
+HOST: 
+PORT:
+DATABASE:
+USER: 
+PASSWORD:
+]
