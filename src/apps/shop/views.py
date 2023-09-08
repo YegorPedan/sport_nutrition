@@ -4,5 +4,4 @@ from django.views.generic import TemplateView
 
 
 class Index(TemplateView):
-   def get(self, request):
-      return HttpResponse('Hallo, world')
+    template_name = 'shop/base.html'
