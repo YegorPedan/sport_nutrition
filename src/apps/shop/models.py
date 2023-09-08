@@ -14,7 +14,7 @@ class Product(models.Model):
 
 class ProductImage(models.Model):
     url = models.ImageField(upload_to='shop_images', null=True, blank=True)
-    product_id = models.ForeignKey(to=Product, on_delete=models.CASCADE, related_name='images')
+    product = models.ForeignKey(to=Product, on_delete=models.CASCADE, related_name='images')
 
     class Meta:
         db_table = 'product_image'
