@@ -67,3 +67,37 @@ header.header {
 .header-list__item {
 	font-size: 28px;
 }
+
+.sport-products {
+	margin-top: 50px;
+}
+
+.sport-list {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: 5px;
+}
+
+.sport-item {
+	text-align: left;
+	margin-bottom: 20px;
+}
+
+.sport-item__img {
+	display: block;
+	margin-bottom: 10px;
+}
+.sport-item__img > img {
+	display: block;
+	max-width: 300px;
+}
+
+.sport-item__link {
+	color: black;
+	margin-bottom: 10px;
+}
+
+.sport-item__quantity {
+	margin-bottom: 10px;
+}

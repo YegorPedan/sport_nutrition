@@ -1,6 +1,20 @@
 {% extends 'shop/base.html' %}
+{% load static %}
 
 
 {% block content %}
-    Hallo, world
+    <div class="sport-products">
+        <nav class="sport-nav">
+            <ul class="sport-list">
+                <li class="sport-item">
+                    <a href="#" class="sport-item__img">
+                        <img src="{% static 'images/wallpaperflare.com_wallpaper.jpg' %}" alt="must be image">
+                    </a>
+                    <a href="#" class="sport-item__link">SOME LONG STUPID TEXT</a>
+                    <div class="sport-item__quantity">QUANTITY: 10</div>
+                    <a class="btn btn-primary" href="#" role="button">MORE INFO</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
 {% endblock %}
