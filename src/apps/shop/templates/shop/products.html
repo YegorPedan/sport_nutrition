@@ -1,19 +1,20 @@
 {% extends 'shop/base.html' %}
-{% load static %}
 
 
 {% block content %}
     <div class="sport-products">
         <nav class="sport-nav">
             <ul class="sport-list">
+              {% for product in products %}
                 <li class="sport-item">
                     <a href="#" class="sport-item__img">
-                        <img src="{% static 'images/wallpaperflare.com_wallpaper.jpg' %}" alt="must be image">
+                      <img src="{{ product.images.all.0.url.url }}" alt="must be image">
                     </a>
-                    <a href="#" class="sport-item__link">SOME LONG STUPID TEXT</a>
-                    <div class="sport-item__quantity">QUANTITY: 10</div>
+                    <a href="#" class="sport-item__link">{{ product.name }}</a>
+                    <div class="sport-item__quantity">QUANTITY: {{ product.quantity }}</div>
                     <a class="btn btn-primary" href="#" role="button">MORE INFO</a>
                 </li>
+                {% endfor %}
             </ul>
         </nav>
     </div>
