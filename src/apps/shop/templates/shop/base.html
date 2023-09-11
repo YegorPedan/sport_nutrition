@@ -37,5 +37,19 @@
             {% endblock %}
         </div>
     </section>
+ <nav class="list-pages">
+        <ul>
+            {% for page in paginator.page_range %}
+
+            {% if page_obj.number == page %}
+                <li class="page-num page-num-selected">{{ page }}</li>
+            {% else %}
+            <li class="page-num">
+                <a href="?page={{ page }}">{{ page }}</a>
+            </li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+    </nav>
 </body>
 </html>

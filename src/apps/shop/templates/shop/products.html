@@ -7,10 +7,11 @@
             <ul class="sport-list">
               {% for product in products %}
                 <li class="sport-item">
-                    <a href="#" class="sport-item__img">
+                    <a href="{% url 'shop/:product-detail' pk=product.pk %}" class="sport-item__img">
                       <img src="{{ product.images.all.0.url.url }}" alt="must be image">
                     </a>
                     <a href="#" class="sport-item__link">{{ product.name }}</a>
+                    <div class="sport-item__price">PRICE: {{ product.price }}</div>
                     <div class="sport-item__quantity">QUANTITY: {{ product.quantity }}</div>
                     <a class="btn btn-primary" href="#" role="button">MORE INFO</a>
                 </li>
