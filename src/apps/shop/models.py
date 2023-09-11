@@ -3,10 +3,13 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 
 
 class Product(models.Model):
-    name = models.CharField(max_length=255),
+    name = models.CharField(max_length=255)
     energy_value = models.PositiveIntegerField()
     price = models.PositiveIntegerField()
     quantity = models.PositiveIntegerField()
+
+    def __str__(self) -> str:
+        return self.name
 
     class Meta:
         db_table = 'product'
@@ -14,7 +17,8 @@ class Product(models.Model):
 
 class ProductImage(models.Model):
     url = models.ImageField(upload_to='shop_images', null=True, blank=True)
-    product = models.ForeignKey(to=Product, on_delete=models.CASCADE, related_name='images')
+    product = models.ForeignKey(
+        to=Product, on_delete=models.CASCADE, related_name='images')
 
     class Meta:
         db_table = 'product_image'
@@ -23,6 +27,9 @@ class ProductImage(models.Model):
 class DeliveryPoint(models.Model):
     address = models.CharField(max_length=255)
     name = models.CharField(max_length=255)
+
+    def __str__(self) -> str:
+        return self.address
 
     class Meta:
         db_table = 'delivery-point'
@@ -42,7 +49,8 @@ class Order(models.Model):
     )
     code = models.CharField('The item uniq code', max_length=50),
     product = models.ManyToManyField(Product, related_name='orders')
-    delivery_point = models.ForeignKey(to=DeliveryPoint, on_delete=models.CASCADE, related_name='orders')
+    delivery_point = models.ForeignKey(
+        to=DeliveryPoint, on_delete=models.CASCADE, related_name='orders')
 
     class Meta:
         db_table = 'order'
@@ -57,8 +65,9 @@ class Feedback(models.Model):
             MaxValueValidator(5),
         ]
     )
-    date = models.DateTimeField(auto_now_add=True),
-    product = models.ForeignKey(to=Product, on_delete=models.CASCADE, related_name='comments')
+    date = models.DateField(auto_now_add=True)
+    product = models.ForeignKey(
+        to=Product, on_delete=models.CASCADE, related_name='comments')
 
     class Meta:
         db_table = 'feedback'
