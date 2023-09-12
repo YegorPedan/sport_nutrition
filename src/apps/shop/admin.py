@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Product, DeliveryPoint, Order, Feedback, ProductImage
+from .models import Product, DeliveryPoint, Order, Feedback, ProductImage, Customer, Cart
 from django.utils.html import escape, format_html
 
 
@@ -48,3 +48,13 @@ class FeedbackAdmin(admin.ModelAdmin):
         return obj.text[:50]
 
     small_desc.short_description = 'description'
+
+
+@admin.register(Customer)
+class CustomerAdmin(admin.ModelAdmin):
+    list_display = ['username']
+
+
+@admin.register(Cart)
+class CartAdmin(admin.ModelAdmin):
+    list_display = ['id']
