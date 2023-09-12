@@ -1,0 +1,1 @@
+[{"model": "shop.deliverypoint", "pk": 1, "fields": {"address": "puskin street", "name": "vasa"}}, {"model": "shop.deliverypoint", "pk": 2, "fields": {"address": "kalatushkin street", "name": "misha"}}, {"model": "shop.deliverypoint", "pk": 3, "fields": {"address": "zefira street", "name": "shasha"}}]

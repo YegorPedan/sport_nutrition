@@ -1,0 +1,1 @@
+[{"model": "shop.feedback", "pk": 1, "fields": {"text": "Крутая банка", "mark": 5, "date": "2023-09-11", "product": 1}}, {"model": "shop.feedback", "pk": 2, "fields": {"text": "Мега крутая банка", "mark": 2, "date": "2023-09-11", "product": 2}}, {"model": "shop.feedback", "pk": 3, "fields": {"text": "супеп пупер крутая банка", "mark": 4, "date": "2023-09-11", "product": 3}}]

@@ -22,6 +22,8 @@ class Index(ListView):
         if max_price:
             queryset = queryset.filter(price__lte=max_price)
 
+        queryset = queryset.order_by('price')
+
         return queryset
 
 
