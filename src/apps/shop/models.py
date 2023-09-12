@@ -71,3 +71,14 @@ class Feedback(models.Model):
 
     class Meta:
         db_table = 'feedback'
+
+
+class Customer(models.Model):
+    email = models.CharField(max_length=255)
+    username = models.CharField(max_length=255)
+    password = models.CharField(max_length=50)
+
+
+class Cart(models.Model):
+    customer = models.ForeignKey(to=Customer, on_delete=models.CASCADE, related_name='cart')
+    products = models.ManyToManyField(Product, related_name="carts")
