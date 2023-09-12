@@ -1,19 +1,36 @@
 {% extends 'shop/base.html' %}
-{% load static %}
 
 
 {% block content %}
+    <form action="{% url 'shop/:index' %}" method="GET">
+   <div class="input-group input-group-sm mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-sm">Min price</span>
+  </div>
+  <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="min_price" id="min_price" value="{{ request.GET.min_price }}">
+    </div>
+    <div class="input-group input-group-sm mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-sm" name="max_price">Max price</span>
+        </div>
+        <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="max_price" id="max_price" value="{{ request.GET.max_price }}">
+    </div>
+        <button class="btn btn-warning">Apply filters</button>
+    </form>
     <div class="sport-products">
         <nav class="sport-nav">
             <ul class="sport-list">
+              {% for product in products %}
                 <li class="sport-item">
-                    <a href="#" class="sport-item__img">
-                        <img src="{% static 'images/wallpaperflare.com_wallpaper.jpg' %}" alt="must be image">
+                    <a href="{% url 'shop/:product-detail' pk=product.pk %}" class="sport-item__img">
+                      <img src="{{ product.images.all.0.url.url }}" alt="must be image">
                     </a>
-                    <a href="#" class="sport-item__link">SOME LONG STUPID TEXT</a>
-                    <div class="sport-item__quantity">QUANTITY: 10</div>
-                    <a class="btn btn-primary" href="#" role="button">MORE INFO</a>
+                    <a href="{% url 'shop/:product-detail' pk=product.pk %}" class="sport-item__link">{{ product.name }}</a>
+                    <div class="sport-item__price">PRICE: {{ product.price }}</div>
+                    <div class="sport-item__quantity">QUANTITY: {{ product.quantity }}</div>
+                    <a class="btn btn-primary" href="{% url 'shop/:product-detail' pk=product.pk %}" role="button">MORE INFO</a>
                 </li>
+                {% endfor %}
             </ul>
         </nav>
     </div>

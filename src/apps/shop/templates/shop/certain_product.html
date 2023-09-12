@@ -1,0 +1,13 @@
+{% extends 'shop/base.html' %}
+
+
+{%  block content %}
+
+        <a href="{% url 'shop/:product-detail' pk=product.pk %}" class="sport-item__img">
+            <img src="{{ product.images.all.0.url.url }}" alt="must be image">
+        </a>
+        <a href="#" class="sport-item__link">{{ product.name }}</a>
+        <div class="sport-item__quantity">Price: {{ product.price }}</div>
+        <div class="sport-item__quantity">QUANTITY: {{ product.quantity }}</div>
+        <a class="btn btn-primary" href="#" role="button">MORE INFO</a>
+{% endblock %}

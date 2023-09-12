@@ -1,0 +1,1 @@
+[{"model": "shop.order", "pk": 1, "fields": {"status": "PR", "delivery_point": 1, "product": [1]}}, {"model": "shop.order", "pk": 2, "fields": {"status": "DI", "delivery_point": 2, "product": [2]}}, {"model": "shop.order", "pk": 3, "fields": {"status": "DD", "delivery_point": 3, "product": [3]}}]
